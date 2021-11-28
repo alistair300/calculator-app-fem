@@ -119,7 +119,7 @@ class Calculator {
             case '-':
                 result = prevNum - currentNum;
                 break;
-            case '*':
+            case 'x':
                 result = prevNum * currentNum;
                 break;
             case '/':
