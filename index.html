@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="/src/style.css" />
+
+    <title>Frontend Mentor | Calculator app</title>
+  </head>
+  <body class="theme-dark">
+    <!-- header -->
+    <header>
+      <div class="logo">calc</div>
+      <div class="theme-container">
+        <h5 class="title">theme</h5>
+        <div class="toggle-container">
+          <label for="theme">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+          </label>
+          <div class="input-container">
+            <input
+              type="radio"
+              name="theme"
+              data-theme="theme-dark"
+              class="theme"
+              checked
+            />
+            <input
+              type="radio"
+              name="theme"
+              data-theme="theme-light"
+              class="theme"
+            />
+            <input
+              type="radio"
+              name="theme"
+              data-theme="theme-purple"
+              class="theme"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="output">
+        <div data-previous-operand class="previous-operand"></div>
+        <div data-current-operand class="current-operand">0</div>
+      </div>
+
+      <div class="calculator-grid">
+        <button data-number>7</button>
+        <button data-number>8</button>
+        <button data-number>9</button>
+        <button data-delete>DEL</button>
+        <button data-number>4</button>
+        <button data-number>5</button>
+        <button data-number>6</button>
+        <button data-operation>+</button>
+        <button data-number>1</button>
+        <button data-number>2</button>
+        <button data-number>3</button>
+        <button data-operation>-</button>
+        <button data-number>.</button>
+        <button data-number>0</button>
+        <button data-operation>/</button>
+        <button data-operation>x</button>
+        <button data-reset class="span-two">RESET</button>
+        <button data-equals class="span-two">=</button>
+      </div>
+    </main>
+
+    <!-- javascript -->
+    <script src="/src/app.js"></script>
+  </body>
+</html>

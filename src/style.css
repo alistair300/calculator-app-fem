@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Spartan', sans-serif;
+  font-weight: 700;
+}
+
+/* variables */
+:root {
+  --box-shadow: 0px 4px 0px;
+}
+
+/* theme 1 */
+body.theme-dark {
+  --main-background: hsl(222, 26%, 31%);
+  --toggle-and-keypad-background: hsl(223, 31%, 20%);
+  --screen-background: hsl(224, 36%, 15%);
+
+  --clear-key-background: hsl(225, 21%, 49%);
+  --clear-key-shadow: hsl(224, 28%, 35%);
+
+  --equal-key-and-toggle-circle-background: hsl(6, 63%, 50%);
+  --equal-key-shadow: hsl(6, 70%, 34%);
+
+  --number-key-background: hsl(30, 25%, 89%);
+  --number-key-shadow: hsl(28, 16%, 65%);
+
+  --number-key-text: hsl(221, 14%, 31%);
+  --result-text: #fff;
+  --clear-text: #fff;
+}
+
+/* theme 2 */
+body.theme-light {
+  --main-background: hsl(0, 0%, 90%);
+  --toggle-and-keypad-background: hsl(0, 5%, 81%);
+  --screen-background: hsl(0, 0%, 93%);
+
+  --clear-key-background: hsl(185, 42%, 37%);
+  --clear-key-shadow: hsl(185, 58%, 25%);
+
+  --equal-key-and-toggle-circle-background: hsl(25, 98%, 40%);
+  --equal-key-shadow: hsl(25, 99%, 27%);
+
+  --number-key-background: hsl(45, 7%, 89%);
+  --number-key-shadow: hsl(35, 11%, 61%);
+
+  --number-key-text: hsl(60, 10%, 19%);
+  --result-text: hsl(60, 10%, 19%);
+  --clear-text: hsl(0, 0, 100%);
+}
+
+/* theme 3 */
+body.theme-purple {
+  --main-background: hsl(268, 75%, 9%);
+  --toggle-and-keypad-background: hsl(268, 71%, 12%);
+  --screen-background: hsl(268, 71%, 12%);
+
+  --clear-key-background: hsl(281, 89%, 26%);
+  --clear-key-shadow: hsl(285, 91%, 52%);
+
+  --equal-key-and-toggle-circle-background: hsl(176, 100%, 44%);
+  --equal-key-shadow: hsl(177, 92%, 70%);
+
+  --number-key-background: hsl(268, 47%, 21%);
+  --number-key-shadow: hsl(290, 70%, 36%);
+
+  --number-key-text: hsl(52, 100%, 62%);
+  --result-text: hsl(52, 100%, 62%);
+  --clear-text: #fff;
+}
+
+body {
+  font-size: 32px;
+  min-height: 100vh;
+  background-color: var(--main-background);
+  padding: 22px;
+  max-width: 540px;
+  margin: 0 auto;
+  display: grid;
+  transition: background-color 350ms ease-in-out,
+    color 350ms ease-in-out;
+  -webkit-transition: background-color 350ms ease-in-out;
+  -moz-transition: background-color 350ms ease-in-out;
+  -ms-transition: background-color 350ms ease-in-out;
+  -o-transition: background-color 350ms ease-in-out;
+}
+
+header .logo,
+header .title,
+header span,
+main .output {
+  color: var(--result-text);
+}
+
+/* header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: end;
+}
+
+header .title {
+  margin-bottom: 5px;
+}
+
+/* header - theme */
+header .theme-container {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+header .toggle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header .toggle-container label {
+  display: flex;
+  gap: 13px;
+}
+
+/* header - theme: numbers */
+header .toggle-container span {
+  font-size: 13px;
+}
+
+/* header - theme: input */
+header .input-container {
+  background-color: var(--toggle-and-keypad-background);
+  cursor: default;
+  margin-top: 3px;
+  padding: 7px 7px 1px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+
+header .input-container input {
+  border: 8px solid transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  appearance: none;
+}
+
+header .input-container input:checked {
+  background-color: var(--equal-key-and-toggle-circle-background);
+}
+
+/* main */
+/* main - output div */
+.output {
+  min-height: 110px;
+  margin: 30px 0 20px;
+  background-color: var(--screen-background);
+  padding: 22px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.output .previous-operand {
+  font-size: 16px;
+  opacity: 0.6;
+  margin-bottom: 7px;
+}
+
+/* main - calc grid */
+.calculator-grid {
+  padding: 18px;
+  background-color: var(--toggle-and-keypad-background);
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, minmax(60px, auto));
+}
+
+.calculator-grid .span-two {
+  grid-column: span 2;
+}
+
+.calculator-grid button {
+  border: 0;
+  outline: 0;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+
+.calculator-grid button:hover {
+  opacity: 0.8;
+}
+
+.calculator-grid button:active {
+  position: relative;
+  top: 5%;
+}
+
+.calculator-grid button[data-delete],
+.calculator-grid button[data-reset],
+.calculator-grid button[data-equals] {
+  font-size: 18px;
+}
+
+.calculator-grid button[data-number],
+.calculator-grid button[data-operation] {
+  background-color: var(--number-key-background);
+  color: var(--number-key-text);
+  box-shadow: var(--box-shadow) var(--number-key-shadow);
+}
+
+.calculator-grid button[data-delete],
+.calculator-grid button[data-reset] {
+  background-color: var(--clear-key-background);
+  color: var(--clear-text);
+  box-shadow: var(--box-shadow) var(--clear-key-shadow);
+}
+
+.calculator-grid button[data-equals] {
+  background-color: var(--equal-key-and-toggle-circle-background);
+  box-shadow: var(--box-shadow) var(--equal-key-shadow);
+}
